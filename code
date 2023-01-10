@@ -1,0 +1,72 @@
+def coffee_bot():
+  print("Welcome to the cafe!")
+  size = get_size()
+  drink_type = get_drink_type()
+  print(f"Alright, Thats a {size} {drink_type}!")
+  name = input("Can i get your name please? ")
+  print(f"Thanks, {name}! Your drink will be ready shortly")
+
+def get_size():
+  res = input('What size drink can I get for you? \n[a] Small \n[b] Medium \n[c] Large \n> ')
+  if res == 'a':
+    return 'Small'
+  elif res == 'b':
+    return 'Medium'
+  elif res == 'c':
+    return 'Large'
+  else:
+    print_message()
+    return get_size()
+
+def print_message():
+  print("I'm sorry, I did not understand your selection. Please enter the corresponding letter for your response.")
+
+def get_drink_type():
+  drink_type = input('What type of drink would you like? \n[a] Brewed Coffee \n[b] Mocha \n[c] Latte \n')
+  if drink_type == 'a':
+    return order_coffee()
+  elif drink_type == 'b':
+    return order_mocha()
+  elif drink_type == 'c':
+    return order_latte()
+  else:
+    print_message()
+    return get_drink_type()
+
+def order_latte():
+  res = input('And what kind of milk for your latte? \n[a] 2% milk \n[b] Non-fat milk \n[c] Soy milk \n> ')
+  if res == 'a':
+    return 'latte'
+  elif res == 'b':
+    return 'Non-fat latte'
+  elif res == 'c':
+    return 'Soy latte'
+  else:
+    print_message()
+    return order_latte()
+
+def order_coffee():
+  res = input('And what kind of milk for your brewed coffee? \n[a] 2% milk \n[b] Non-fat milk \n[c] Soy milk \n> ')
+  if res == 'a':
+    return 'Brewed Coffee with milk'
+  elif res == 'b':
+    return 'Non-fat  brewed coffee'
+  elif res == 'c':
+    return 'Soy brewed coffee'
+  else:
+    print_message()
+    return order_coffee()
+
+def order_mocha():
+  res = input('And what kind of milk for your mocha? \n[a] 2% milk \n[b] Non-fat milk \n[c] Soy milk \n> ')
+  if res == 'a':
+    return 'mocha'
+  elif res == 'b':
+    return 'Non-fat mocha'
+  elif res == 'c':
+    return 'Soy mocha'
+  else:
+    print_message()
+    return order_mocha()
+
+coffee_bot()
